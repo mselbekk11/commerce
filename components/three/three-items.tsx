@@ -13,7 +13,7 @@ function ThreeItemGridItem({
   return (
     <div className=''>
       <Link
-        className='relative block aspect-square h-full w-full'
+        className='relative block h-full w-full'
         href={`/product/${item.handle}`}
         prefetch={true}
       >
@@ -23,7 +23,6 @@ function ThreeItemGridItem({
           priority={priority}
           alt={item.title}
           label={{
-            position: 'bottom',
             title: item.title as string,
             amount: item.priceRange.maxVariantPrice.amount,
             currencyCode: item.priceRange.maxVariantPrice.currencyCode,
