@@ -16,7 +16,7 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
