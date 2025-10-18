@@ -1,0 +1,54 @@
+import { GridTileImage } from 'components/three/tile';
+import { getCollectionProducts } from 'lib/shopify';
+import type { Product } from 'lib/shopify/types';
+import Link from 'next/link';
+
+function ThreeItemGridItem({
+  item,
+  priority,
+}: {
+  item: Product;
+  priority?: boolean;
+}) {
+  return (
+    <div className=''>
+      <Link
+        className='relative block aspect-square h-full w-full'
+        href={`/product/${item.handle}`}
+        prefetch={true}
+      >
+        <GridTileImage
+          src={item.featuredImage.url}
+          fill
+          priority={priority}
+          alt={item.title}
+          label={{
+            position: 'bottom',
+            title: item.title as string,
+            amount: item.priceRange.maxVariantPrice.amount,
+            currencyCode: item.priceRange.maxVariantPrice.currencyCode,
+          }}
+        />
+      </Link>
+    </div>
+  );
+}
+
+export async function ThreeItemGrid() {
+  // Collections that start with `hidden-*` are hidden from the search page.
+  const homepageItems = await getCollectionProducts({
+    collection: 'hidden-homepage-featured-items',
+  });
+
+  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
+
+  const [firstProduct, secondProduct, thirdProduct] = homepageItems;
+
+  return (
+    <section className='mx-auto grid gap-4 px-4 pb-4 md:grid-cols-3'>
+      <ThreeItemGridItem item={firstProduct} priority={true} />
+      <ThreeItemGridItem item={secondProduct} priority={true} />
+      <ThreeItemGridItem item={thirdProduct} />
+    </section>
+  );
+}
