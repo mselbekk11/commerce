@@ -11,13 +11,13 @@ const Label = ({
 }) => {
   return (
     <div className='flex w-full pt-2 pb-2'>
-      <div className='flex flex-col rounded-full text-xs font-semibold text-black dark:border-neutral-800 dark:bg-black/70 dark:text-white'>
+      <div className='flex flex-col text-sm text-gray-500 font-medium dark:border-neutral-800 dark:bg-black/70 dark:text-white'>
         <h3 className=''>{title}</h3>
         <Price
-          className=' text-black'
+          className=''
           amount={amount}
           currencyCode={currencyCode}
-          currencyCodeClassName='hidden @[275px]/label:inline'
+          currencyCodeClassName=''
         />
       </div>
     </div>

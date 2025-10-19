@@ -17,7 +17,7 @@ export function GridTileImage({
   };
 } & React.ComponentProps<typeof Image>) {
   return (
-    <div className="flex w-full flex-col">
+    <div className='flex w-full flex-col'>
       <div
         className={clsx(
           'group relative aspect-square w-full overflow-hidden border dark:bg-black',
