@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      {/* <ThreeItemGrid /> */}
+      <ThreeItemGrid />
       <Section />
       <Carousel />
       <Footer />
