@@ -6,10 +6,12 @@ export function GridTileImage({
   isInteractive = true,
   active,
   label,
+  shouldBlur = false,
   ...props
 }: {
   isInteractive?: boolean;
   active?: boolean;
+  shouldBlur?: boolean;
   label?: {
     title: string;
     amount: string;
@@ -32,6 +34,7 @@ export function GridTileImage({
             className={clsx('h-full w-full object-cover', {
               'transition duration-300 ease-in-out group-hover:scale-105':
                 isInteractive,
+              'blur-xs': shouldBlur,
             })}
             {...props}
           />
