@@ -1,8 +1,8 @@
 import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/three/three-items';
 import Hero from 'components/hero/hero';
-import Footer from 'components/layout/footer';
 import Section from 'components/hero/section';
+import Footer from 'components/layout/footer';
+import { ThreeItemGrid } from 'components/three/three-items';
 
 export const metadata = {
   description:
@@ -20,6 +20,7 @@ export default function HomePage() {
       <Section />
       <Carousel />
       <Footer />
+      <p>test</p>
     </>
   );
 }
