@@ -20,7 +20,7 @@ export function GridTileImage({
     <div className='flex w-full flex-col'>
       <div
         className={clsx(
-          'group relative aspect-square w-full overflow-hidden border dark:bg-black',
+          'group relative aspect-square w-full overflow-hidden border bg-[#F6F6F6] dark:bg-black',
           {
             'border-2 border-blue-600': active,
             'border-neutral-200 dark:border-neutral-800': !active,
