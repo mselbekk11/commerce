@@ -6,6 +6,7 @@ export function GridTileImage({
   isInteractive = true,
   active,
   label,
+  background = 'bg-[#F6F6F6]',
   ...props
 }: {
   isInteractive?: boolean;
@@ -15,12 +16,14 @@ export function GridTileImage({
     amount: string;
     currencyCode: string;
   };
+  background?: string;
 } & React.ComponentProps<typeof Image>) {
   return (
     <div className='flex w-full flex-col'>
       <div
         className={clsx(
-          'group relative aspect-square w-full overflow-hidden border bg-[#F6F6F6] dark:bg-black',
+          'group relative aspect-square w-full overflow-hidden border dark:bg-black',
+          background,
           {
             'border-2 border-blue-600': active,
             'border-neutral-200 dark:border-neutral-800': !active,
