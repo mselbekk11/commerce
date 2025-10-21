@@ -7,9 +7,9 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
-      <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
-        <h1 className="mb-2 text-2xl font-medium">{product.title}</h1>
-        <div className="text-sm text-black">
+      <div className='mb-6 flex items-baseline justify-between border-b pb-2 dark:border-neutral-700'>
+        <h1 className='mb-2 text-lg font-medium'>{product.title}</h1>
+        <div className='text-lg font-medium text-black'>
           <Price
             amount={product.priceRange.maxVariantPrice.amount}
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
@@ -19,7 +19,7 @@ export function ProductDescription({ product }: { product: Product }) {
       <VariantSelector options={product.options} variants={product.variants} />
       {product.descriptionHtml ? (
         <Prose
-          className="mb-6 text-sm leading-tight dark:text-white/[60%]"
+          className='mb-6 text-sm leading-tight dark:text-white/[60%]'
           html={product.descriptionHtml}
         />
       ) : null}
