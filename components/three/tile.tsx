@@ -25,7 +25,7 @@ export function GridTileImage({
           'group relative aspect-square w-full overflow-hidden border dark:bg-black',
           background,
           {
-            'border-2 border-blue-600': active,
+            'border-2 border-black': active,
             'border-neutral-200 dark:border-neutral-800': !active,
           }
         )}
