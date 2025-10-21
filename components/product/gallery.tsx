@@ -30,7 +30,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
           />
         )}
 
-        {images.length > 1 ? (
+        {/* {images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">
             <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur-sm dark:border-black dark:bg-neutral-900/80">
               <button
@@ -56,7 +56,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
               </button>
             </div>
           </div>
-        ) : null}
+        ) : null} */}
       </div>
 
       {images.length > 1 ? (
