@@ -1,6 +1,6 @@
 import { getCollectionProducts } from 'lib/shopify';
 import Link from 'next/link';
-import { GridTileImage } from './grid/tile';
+import { GridTileImage } from './three/tile';
 
 export async function Carousel() {
   // Collections that start with `hidden-*` are hidden from the search page.
@@ -14,12 +14,12 @@ export async function Carousel() {
   const carouselProducts = [...products];
 
   return (
-    <div className='w-full overflow-x-auto py-6'>
+    <div className='w-full overflow-x-auto py-6 pl-6'>
       <ul className='flex animate-carousel gap-4'>
         {carouselProducts.map((product, i) => (
           <li
             key={`${product.handle}${i}`}
-            className='relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none md:w-1/3'
+            className='relative w-1/2 max-w-[320px] flex-none md:w-1/4'
           >
             <Link
               href={`/product/${product.handle}`}
