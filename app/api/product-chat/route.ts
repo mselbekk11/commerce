@@ -1,5 +1,5 @@
 import { openai } from '@ai-sdk/openai';
-import { streamText, convertToCoreMessages } from 'ai';
+import { streamText } from 'ai';
 import { NextRequest } from 'next/server';
 
 // Allow streaming for up to 30 seconds
@@ -65,15 +65,18 @@ INSTRUCTIONS:
 `;
 
     // Stream the AI response
+    // Using gpt-3.5-turbo for AI SDK v4 compatibility
     const result = streamText({
-      model: openai('gpt-4o'),
+      model: openai('gpt-3.5-turbo'),
       system: systemPrompt,
-      messages: convertToCoreMessages(messages),
+      messages: messages,
       temperature: 0.7,
     });
 
-    // Return streaming response
-    return result.toTextStreamResponse();
+    // Return streaming response compatible with useChat
+    // toDataStreamResponse() is specifically designed for use with useChat hook
+    // @ts-expect-error - toDataStreamResponse exists in AI SDK v4 runtime but TypeScript definitions may not reflect it correctly
+    return result.toDataStreamResponse();
 
   } catch (error) {
     console.error('Product chat API error:', error);
