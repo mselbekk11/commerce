@@ -99,7 +99,7 @@ export default async function ProductPage(props: {
             </Suspense>
           </div>
 
-          <div className='basis-full lg:basis-3/6 p-6'>
+          <div className='basis-full lg:basis-3/6'>
             <Suspense fallback={null}>
               <ProductDescription product={product} />
             </Suspense>
