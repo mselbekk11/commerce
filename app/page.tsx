@@ -1,7 +1,7 @@
 import { Carousel } from 'components/carousel';
 import Hero from 'components/hero/hero';
-import Section from 'components/hero/section';
 import Footer from 'components/layout/footer';
+import Section from 'components/section/section';
 import { ThreeItemGrid } from 'components/three/three-items';
 
 export const metadata = {
