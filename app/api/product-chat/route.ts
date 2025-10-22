@@ -74,9 +74,8 @@ INSTRUCTIONS:
     });
 
     // Return streaming response compatible with useChat
-    // toDataStreamResponse() is specifically designed for use with useChat hook
-    // @ts-expect-error - toDataStreamResponse exists in AI SDK v4 runtime but TypeScript definitions may not reflect it correctly
-    return result.toDataStreamResponse();
+    // Using type assertion because toDataStreamResponse exists at runtime but not in types
+    return (result as any).toDataStreamResponse();
 
   } catch (error) {
     console.error('Product chat API error:', error);
