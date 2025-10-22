@@ -51,7 +51,7 @@ export async function ThreeItemGrid() {
     homepageItems;
 
   return (
-    <section className='mx-auto grid gap-4 px-4 py-4 md:grid-cols-4 max-w-7xl'>
+    <section className='mx-auto grid gap-4 px-4 py-4 md:grid-cols-4 max-w-(--breakpoint-2xl)'>
       <ThreeItemGridItem item={firstProduct} priority={true} />
       <ThreeItemGridItem item={secondProduct} priority={true} />
       <ThreeItemGridItem item={thirdProduct} />
