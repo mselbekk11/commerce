@@ -7,6 +7,7 @@ export function GridTileImage({
   active,
   label,
   background = 'bg-[#F6F6F6]',
+  constrainAspectRatio = true,
   ...props
 }: {
   isInteractive?: boolean;
@@ -17,14 +18,20 @@ export function GridTileImage({
     currencyCode: string;
   };
   background?: string;
+  constrainAspectRatio?: boolean;
 } & React.ComponentProps<typeof Image>) {
   return (
-    <div className='flex w-full flex-col'>
+    <div className={clsx('flex w-full', {
+      'flex-col': constrainAspectRatio,
+      'h-full flex-col': !constrainAspectRatio
+    })}>
       <div
         className={clsx(
-          'group relative aspect-square w-full overflow-hidden border dark:bg-black',
+          'group relative w-full overflow-hidden border dark:bg-black',
           background,
           {
+            'aspect-square': constrainAspectRatio,
+            'flex-1': !constrainAspectRatio,
             'border-2 border-black': active,
             'border-neutral-200 dark:border-neutral-800': !active,
           }
