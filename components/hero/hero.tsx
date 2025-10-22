@@ -1,10 +1,11 @@
-import { AnimatedHalftoneBackground } from "./animated-halftone-background";
+import { AnimatedHalftoneBackgroundTwo } from './animated-halftone-background-two';
 
 export default function Hero() {
   return (
-    <div className='w-full h-[600px] bg-black'>
+    <div className='w-full h-[400px] bg-black'>
       {/* <div>This is a test</div> */}
       {/* <AnimatedHalftoneBackground /> */}
+      <AnimatedHalftoneBackgroundTwo />
     </div>
   );
 }
