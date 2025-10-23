@@ -157,7 +157,7 @@ export function AIAssistantPanel({
 
             {/* Prompt Suggestions - Above Input */}
 
-            <div className='grid grid-cols-2 gap-2 mb-4'>
+            <div className='hidden md:grid md:grid-cols-2 md:gap-2 md:mb-4'>
               {PROMPT_SUGGESTIONS.map((suggestion) => (
                 <Button
                   key={suggestion}
