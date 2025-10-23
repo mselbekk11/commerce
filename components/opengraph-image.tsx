@@ -1,7 +1,7 @@
-import { ImageResponse } from 'next/og';
-import LogoIcon from './icons/logo';
-import { join } from 'path';
 import { readFile } from 'fs/promises';
+import { ImageResponse } from 'next/og';
+import { join } from 'path';
+import LogoTwoIcon from './icons/logo-two';
 
 export type Props = {
   title?: string;
@@ -12,9 +12,9 @@ export default async function OpengraphImage(
 ): Promise<ImageResponse> {
   const { title } = {
     ...{
-      title: process.env.SITE_NAME
+      title: process.env.SITE_NAME,
     },
-    ...props
+    ...props,
   };
 
   const file = await readFile(join(process.cwd(), './fonts/Inter-Bold.ttf'));
@@ -22,11 +22,12 @@ export default async function OpengraphImage(
 
   return new ImageResponse(
     (
-      <div tw="flex h-full w-full flex-col items-center justify-center bg-black">
-        <div tw="flex flex-none items-center justify-center border border-neutral-700 h-[160px] w-[160px] rounded-3xl">
-          <LogoIcon width="64" height="58" fill="white" />
+      <div tw='flex h-full w-full flex-col items-center justify-center bg-black'>
+        <div tw='flex flex-none items-center justify-center border border-neutral-700 h-[160px] w-[160px] rounded-3xl'>
+          {/* <LogoIcon width="64" height="58" fill="white" /> */}
+          <LogoTwoIcon />
         </div>
-        <p tw="mt-12 text-6xl font-bold text-white">{title}</p>
+        <p tw='mt-12 text-6xl font-bold text-white'>{title}</p>
       </div>
     ),
     {
@@ -37,9 +38,9 @@ export default async function OpengraphImage(
           name: 'Inter',
           data: font,
           style: 'normal',
-          weight: 700
-        }
-      ]
+          weight: 700,
+        },
+      ],
     }
   );
 }
