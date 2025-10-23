@@ -45,7 +45,7 @@ export function AIAssistantPanel({ product, isOpen, onClose }: AIAssistantPanelP
       {
         id: 'welcome',
         role: 'assistant',
-        content: `Hi! I'm here to help you learn about **${product.title}**. Feel free to ask me anything about sizing, materials, availability, or any other questions you might have!`,
+        content: `Hi! I'm here to help you learn about ${product.title}. Feel free to ask me anything about sizing, materials, availability, or any other questions you might have!`,
       },
     ],
   });
