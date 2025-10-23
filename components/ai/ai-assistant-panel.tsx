@@ -1,7 +1,5 @@
 'use client';
 
-import { Dialog, Transition } from '@headlessui/react';
-import { SparklesIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import {
   Conversation,
   ConversationContent,
@@ -18,8 +16,9 @@ import {
   type PromptInputMessage,
 } from '@/components/ai-elements/prompt-input';
 import { Response } from '@/components/ai-elements/response';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
+import { Dialog, Transition } from '@headlessui/react';
+import { SparklesIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useChat } from 'ai/react';
 import { Product } from 'lib/shopify/types';
 import { Fragment, useState } from 'react';
@@ -34,6 +33,7 @@ const PROMPT_SUGGESTIONS = [
   'What sizes are available?',
   'Tell me about the materials',
   'Is this in stock?',
+  'What colors are available?',
 ];
 
 export function AIAssistantPanel({
@@ -94,50 +94,50 @@ export function AIAssistantPanel({
 
   return (
     <Transition show={isOpen}>
-      <Dialog onClose={onClose} className="relative z-50">
+      <Dialog onClose={onClose} className='relative z-50'>
         {/* Backdrop */}
         <Transition.Child
           as={Fragment}
-          enter="transition-all ease-in-out duration-300"
-          enterFrom="opacity-0 backdrop-blur-none"
-          enterTo="opacity-100 backdrop-blur-[.5px]"
-          leave="transition-all ease-in-out duration-200"
-          leaveFrom="opacity-100 backdrop-blur-[.5px]"
-          leaveTo="opacity-0 backdrop-blur-none"
+          enter='transition-all ease-in-out duration-300'
+          enterFrom='opacity-0 backdrop-blur-none'
+          enterTo='opacity-100 backdrop-blur-[.5px]'
+          leave='transition-all ease-in-out duration-200'
+          leaveFrom='opacity-100 backdrop-blur-[.5px]'
+          leaveTo='opacity-0 backdrop-blur-none'
         >
-          <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+          <div className='fixed inset-0 bg-black/30' aria-hidden='true' />
         </Transition.Child>
 
         {/* Side Panel */}
         <Transition.Child
           as={Fragment}
-          enter="transition-all ease-in-out duration-300"
-          enterFrom="translate-x-full"
-          enterTo="translate-x-0"
-          leave="transition-all ease-in-out duration-200"
-          leaveFrom="translate-x-0"
-          leaveTo="translate-x-full"
+          enter='transition-all ease-in-out duration-300'
+          enterFrom='translate-x-full'
+          enterTo='translate-x-0'
+          leave='transition-all ease-in-out duration-200'
+          leaveFrom='translate-x-0'
+          leaveTo='translate-x-full'
         >
-          <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[550px] dark:border-neutral-700 dark:bg-black/80 dark:text-white">
+          <Dialog.Panel className='fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[550px] dark:border-neutral-700 dark:bg-black/80 dark:text-white'>
             {/* Header */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <SparklesIcon className="h-5 w-5 text-black dark:text-white" />
-                <Dialog.Title className="text-lg font-semibold">
+            <div className='flex items-center justify-between mb-4'>
+              <div className='flex items-center gap-2'>
+                <SparklesIcon className='h-5 w-5 text-black dark:text-white' />
+                <Dialog.Title className='text-lg font-semibold'>
                   Product Assistant
                 </Dialog.Title>
               </div>
               <button
                 onClick={onClose}
-                className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"
-                aria-label="Close assistant"
+                className='relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white'
+                aria-label='Close assistant'
               >
-                <XMarkIcon className="h-6 transition-all ease-in-out hover:scale-110" />
+                <XMarkIcon className='h-6 transition-all ease-in-out hover:scale-110' />
               </button>
             </div>
 
             {/* Conversation Container */}
-            <Conversation className="flex-1 mb-4">
+            <Conversation className='flex-1 mb-4'>
               <ConversationContent>
                 {messages
                   .filter((message) => message.role !== 'data')
@@ -146,7 +146,7 @@ export function AIAssistantPanel({
                       from={message.role as 'assistant' | 'system' | 'user'}
                       key={message.id}
                     >
-                      <MessageContent variant="flat">
+                      <MessageContent variant='flat'>
                         <Response>{message.content}</Response>
                       </MessageContent>
                     </Message>
@@ -156,23 +156,22 @@ export function AIAssistantPanel({
             </Conversation>
 
             {/* Prompt Suggestions - Above Input */}
-            <ScrollArea className="w-full overflow-x-auto whitespace-nowrap mb-3">
-              <div className="flex w-max flex-nowrap items-center gap-2 pb-2">
-                {PROMPT_SUGGESTIONS.map((suggestion) => (
-                  <Button
-                    key={suggestion}
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    variant="outline"
-                    size="sm"
-                    className="rounded-full px-4"
-                    disabled={status === 'streaming'}
-                    type="button"
-                  >
-                    {suggestion}
-                  </Button>
-                ))}
-              </div>
-            </ScrollArea>
+
+            <div className='grid grid-cols-2 gap-2 mb-4'>
+              {PROMPT_SUGGESTIONS.map((suggestion) => (
+                <Button
+                  key={suggestion}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                  variant='outline'
+                  size='sm'
+                  className='rounded-full px-4'
+                  disabled={status === 'streaming'}
+                  type='button'
+                >
+                  {suggestion}
+                </Button>
+              ))}
+            </div>
 
             {/* Prompt Input */}
             <PromptInput onSubmit={handleSubmit}>
@@ -180,7 +179,7 @@ export function AIAssistantPanel({
                 <PromptInputTextarea
                   onChange={(e) => setText(e.target.value)}
                   value={text}
-                  placeholder="Ask about this product..."
+                  placeholder='Ask about this product...'
                 />
               </PromptInputBody>
               <PromptInputFooter>
