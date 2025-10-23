@@ -4,6 +4,7 @@ import { Navbar } from 'components/layout/navbar';
 import { GeistMono } from 'geist/font/mono';
 import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
+import Script from 'next/script';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import './globals.css';
@@ -42,6 +43,7 @@ export default async function RootLayout({
           </main>
         </CartProvider>
       </body>
+      <Script src='https://scripts.simpleanalyticscdn.com/latest.js' />
     </html>
   );
 }
