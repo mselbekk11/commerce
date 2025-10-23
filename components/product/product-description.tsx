@@ -6,7 +6,7 @@ import Price from 'components/price';
 import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
 import { useState } from 'react';
-import { AIAssistantPanel } from './ai-assistant-panel';
+import { AIAssistantPanel } from '../ai/ai-assistant-panel';
 import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {

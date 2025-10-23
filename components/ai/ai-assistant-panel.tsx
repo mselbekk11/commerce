@@ -90,7 +90,7 @@ export function AIAssistantPanel({
           leaveFrom='translate-x-0'
           leaveTo='translate-x-full'
         >
-          <Dialog.Panel className='fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[450px] dark:border-neutral-700 dark:bg-black/80 dark:text-white'>
+          <Dialog.Panel className='fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[550px] dark:border-neutral-700 dark:bg-black/80 dark:text-white'>
             {/* Header */}
             <div className='flex items-center justify-between mb-4'>
               <div className='flex items-center gap-2'>
