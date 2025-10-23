@@ -14,7 +14,7 @@ export async function Carousel() {
   const carouselProducts = [...products];
 
   return (
-    <div className='w-full overflow-x-auto py-4 pl-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
+    <div className='w-full overflow-x-auto py-4 pl-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
       <ul className='flex animate-carousel gap-4'>
         {carouselProducts.map((product, i) => (
           <li
