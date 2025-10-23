@@ -17,6 +17,7 @@ export default function Hero() {
           fill
           className='object-cover object-center opacity-50'
           priority
+          fetchPriority="high"
         />
       </div>
     </div>
