@@ -20,6 +20,9 @@ export default function HomePage() {
       <Section />
       <Carousel />
       <Footer />
+      <p>Test</p>
+      <p>Test</p>
+      <p>Test</p>
     </>
   );
 }
