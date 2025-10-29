@@ -2,6 +2,7 @@ import { CartProvider } from 'components/cart/cart-context';
 import { Navbar } from 'components/layout/navbar';
 // import { WelcomeToast } from 'components/welcome-toast';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GeistMono } from 'geist/font/mono';
 import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
@@ -43,6 +44,7 @@ export default async function RootLayout({
             {/* <WelcomeToast /> */}
           </main>
         </CartProvider>
+        <SpeedInsights />
         <Analytics />
       </body>
       <Script src='https://scripts.simpleanalyticscdn.com/latest.js' />
