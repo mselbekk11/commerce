@@ -1,0 +1,1 @@
+- in all interactions, be extrememly consice and sacrafice grammar for the sake of conision.
