@@ -20,6 +20,7 @@ export default function HomePage() {
       <Section />
       <Carousel />
       <Footer />
+      <p>This is a new footer</p>
     </>
   );
 }
