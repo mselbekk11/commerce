@@ -21,20 +21,9 @@ export default async function Footer() {
               : ''}{' '}
             All rights reserved.
           </p>
-<<<<<<< HEAD
-          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
-          <p>
-            <a href="https://github.com/vercel/commerce">View the source</a>
-          </p>
-          <p className="md:ml-auto">
-            <a href="https://vercel.com" className="text-black dark:text-white">
-              Created by ▲ Vercelll
-            </a>
-=======
 
           <p className='md:ml-auto'>
             <span className='uppercase'>{SITE_NAME}</span>
->>>>>>> ef997cf45485737ba7af1af62be061200c66ec38
           </p>
         </div>
       </div>
