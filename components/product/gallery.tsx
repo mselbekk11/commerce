@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
-import { GridTileImage } from 'components/grid/tile';
+import { GridTileImage } from 'components/three/tile';
 import { useProduct, useUpdateURL } from 'components/product/product-context';
 import Image from 'next/image';
 
@@ -21,7 +21,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
       <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden">
         {images[imageIndex] && (
           <Image
-            className="h-full w-full object-contain"
+            className="h-full w-full object-cover"
             fill
             sizes="(min-width: 1024px) 66vw, 100vw"
             alt={images[imageIndex]?.altText as string}
@@ -30,9 +30,9 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
           />
         )}
 
-        {images.length > 1 ? (
+        {/* {images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">
-            <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur dark:border-black dark:bg-neutral-900/80">
+            <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur-sm dark:border-black dark:bg-neutral-900/80">
               <button
                 formAction={() => {
                   const newState = updateImage(previousImageIndex.toString());
@@ -56,11 +56,11 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
               </button>
             </div>
           </div>
-        ) : null}
+        ) : null} */}
       </div>
 
       {images.length > 1 ? (
-        <ul className="my-12 flex items-center flex-wrap justify-center gap-2 overflow-auto py-1 lg:mb-0">
+        <ul className="my-12 flex items-center flex-wrap justify-center gap-2 py-1 lg:mb-0">
           {images.map((image, index) => {
             const isActive = index === imageIndex;
 
