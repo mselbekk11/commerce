@@ -19,7 +19,7 @@ export default async function Footer() {
             {copyrightName.length && !copyrightName.endsWith('.')
               ? '.'
               : ''}{' '}
-            All rights reserved.
+            All rights reserved
           </p>
 
           <p className='md:ml-auto'>
